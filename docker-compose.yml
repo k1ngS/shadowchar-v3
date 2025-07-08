@@ -24,7 +24,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://shadowchar:shadowchar123@db:5433/shadowchar
+      DATABASE_URL: postgresql://shadowchar:shadowchar123@db:5432/shadowchar
       SECRET_KEY: your-super-secret-key-here-change-in-production
     depends_on:
       db:
