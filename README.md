@@ -271,8 +271,8 @@ Shadow of the Demon Lord é um RPG criado por Robert J. Schwalb. Este projeto é
 
 - **Autor**: Marcos k1ngs
 - **Email**: marcos.beltrao@outlook.pt
-- **GitHub**: [@seu-usuario](https://github.com/k1ngs)
-- **LinkedIn**: [Seu Perfil](https://linkedin.com/in/marcos-k1ngs)
+- **GitHub**: [@k1ngs](https://github.com/k1ngs)
+- **LinkedIn**: [marcos k1ngs](https://linkedin.com/in/marcos-k1ngs)
 
 ## 🙏 Agradecimentos
 
