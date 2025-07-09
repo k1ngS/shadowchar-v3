@@ -4,16 +4,16 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
-from ..core.config import settings
-from ..core.database import get_db
-from ..core.security import (
+from app.core.config import settings  # Corrigido aqui
+from app.core.database import get_db  # Corrigido aqui
+from app.core.security import (       # Corrigido aqui
     create_access_token,
     get_password_hash,
     verify_password,
     verify_token,
 )
-from ..models.user import User
-from ..schemas.user import Token, UserCreate, UserLogin, UserResponse
+from app.models.user import User      # Corrigido aqui
+from app.schemas.user import Token, UserCreate, UserLogin, UserResponse  # Corrigido aqui
 
 router = APIRouter()
 security = HTTPBearer()
