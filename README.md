@@ -2,8 +2,8 @@
 
 Uma plataforma moderna e especializada para gerenciamento de RPG, focada inicialmente em **Shadow of the Demon Lord** com arquitetura modular para expansão futura.
 
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow) </br>
+![Version](https://img.shields.io/badge/Version-1.0.0-blue) </br>
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 🎯 Sobre o Projeto
@@ -237,7 +237,7 @@ docker-compose exec frontend npm run test:coverage
 
 ### 🚧 Em Desenvolvimento
 
-- [ ] Interface de autenticação (login/registro)
+- [x] Interface de autenticação (login/registro)
 - [ ] Modelos de personagem
 - [ ] Ficha de Shadow of the Demon Lord
 - [ ] Sistema de campanhas
