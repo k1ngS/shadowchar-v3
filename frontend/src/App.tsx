@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet, Link } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { LoginForm } from './components/LoginForm';
+import CharactersPage from './pages/dashboard/CharactersPage';
+import CharacterSheetPage from './pages/dashboard/CharacterSheetPage';
 import './App.css';
 
 const Dashboard: React.FC = () => {
@@ -17,6 +19,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Olá, {user?.username}!</span>
+              <Link to="/characters" className="text-indigo-600 hover:text-indigo-900">Meus Personagens</Link>
               <button
                 onClick={logout}
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -30,24 +33,7 @@ const Dashboard: React.FC = () => {
 
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
-          <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Bem-vindo ao Shadowchar!
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Gerencie seus personagens de Shadow of the Demon Lord
-              </p>
-              <div className="space-x-4">
-                <button className="bg-indigo-500 text-white px-6 py-2 rounded hover:bg-indigo-600">
-                  Meus Personagens
-                </button>
-                <button className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-                  Novo Personagem
-                </button>
-              </div>
-            </div>
-          </div>
+          <Outlet /> {/* Renderiza as rotas aninhadas aqui */}
         </div>
       </main>
     </div>
@@ -86,7 +72,12 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             }
-          />
+          >
+            {/* Rotas aninhadas dentro do Dashboard */}
+            <Route index element={<div>Bem-vindo ao Shadowchar! Selecione uma opção no menu.</div>} /> {/* Página inicial do dashboard */}
+            <Route path="characters" element={<CharactersPage />} />
+            <Route path="characters/:id" element={<CharacterSheetPage />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
