@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { authService } from '../services/auth';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -8,6 +9,8 @@ export const LoginForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const { login, isAuthenticated } = useAuth();
+
+  const router = useNavigate();
 
   console.log('🔍 LoginForm - isAuthenticated:', isAuthenticated);
 
@@ -24,7 +27,6 @@ export const LoginForm: React.FC = () => {
 
       await login(response.access_token);
       console.log('✅ Login processado com sucesso');
-
     } catch (error) {
       console.error('❌ Erro no login:', error);
       setError('Email ou senha incorretos');
@@ -35,6 +37,9 @@ export const LoginForm: React.FC = () => {
 
   // Se já estiver autenticado, mostrar redirecionamento
   if (isAuthenticated) {
+    setTimeout(() => {
+      router('/');
+    }, 2000); // 1 segundo de espera
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
